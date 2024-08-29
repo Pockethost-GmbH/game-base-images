@@ -6,6 +6,8 @@ RUN apt-get update && apt-get install -y \
     tar \
     && rm -rf /var/lib/apt/lists/*
 
+RUN useradd -m -d /home/container container
+
 # RUN mkdir /steam
 # WORKDIR /steam
 # RUN curl -sqL "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" | tar zxvf -
