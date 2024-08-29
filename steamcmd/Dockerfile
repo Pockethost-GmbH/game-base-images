@@ -10,4 +10,4 @@ RUN apt-get update && apt-get install -y \
 # WORKDIR /steam
 # RUN curl -sqL "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" | tar zxvf -
 
-COPY entrypoint.sh /
+COPY entry.sh /entry.sh
