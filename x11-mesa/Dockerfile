@@ -1,4 +1,4 @@
-FROM ghcr.io/pockethost-gmbh/game-base-images/steamcmd
+FROM ghcr.io/pockethost-gmbh/game-base-images/steamcmd:main
 
 RUN apt-get update && apt-get install -y \
     mesa-utils \
