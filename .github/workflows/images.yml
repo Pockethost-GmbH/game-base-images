@@ -1,0 +1,33 @@
+name: ci
+
+on:
+  push:
+
+jobs:
+  steamcmd:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Kaniko build
+        uses: aevea/action-kaniko@master
+        with:
+          image: steamcmd
+          registry: ghcr.io
+          password: ${{ secrets.GITHUB_TOKEN }}
+          cache: true
+          cache_registry: steamcmd
+          path: steamcmd
+  x11-mesa:
+    needs: steamcmd
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Kaniko build
+        uses: aevea/action-kaniko@master
+        with:
+          image: x11-mesa
+          registry: ghcr.io
+          password: ${{ secrets.GITHUB_TOKEN }}
+          cache: true
+          cache_registry: x11-mesa
+          path: x11-mesa
